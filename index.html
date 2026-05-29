@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ateliê Fio Vivo — Curso de Corte & Costura</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+
+  --bg:#fff5eb;
+  --bg-soft:#ffe9d7;
+
+  --orange:#ff7b29;
+  --orange-dark:#df5d00;
+
+  --pink:#ff4f8f;
+  --red:#ff5447;
+
+  --yellow:#ffc95c;
+
+  --brown:#5f3523;
+  --brown-soft:#8d5a44;
+
+  --card:#fff0df;
+
+  --shadow:0 20px 45px rgba(255,123,41,.18);
+
+  --radius:30px;
+
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Space Grotesk',sans-serif;
+  background:var(--bg);
+  color:var(--brown);
+  overflow-x:hidden;
+}
+
+/* NAV */
+
+nav{
+
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:1.2rem 7vw;
+
+  z-index:999;
+
+  background:rgba(255,245,235,.85);
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(95,53,35,.08);
+
+}
+
+.logo{
+
+  text-decoration:none;
+
+  font-family:'DM Serif Display',serif;
+  font-size:2rem;
+
+  color:var(--orange-dark);
+
+}
+
+.logo span{
+  color:var(--pink);
+}
+
+.nav-links{
+
+  display:flex;
+  gap:2rem;
+
+  list-style:none;
+
+}
+
+.nav-links a{
+
+  text-decoration:none;
+  color:var(--brown);
+
+  font-size:.95rem;
+
+  transition:.3s;
+
+}
+
+.nav-links a:hover{
+  color:var(--pink);
+}
+
+.btn-nav{
+
+  text-decoration:none;
+
+  background:linear-gradient(135deg,var(--pink),var(--orange));
+
+  color:white;
+
+  padding:.9rem 1.5rem;
+
+  border-radius:999px;
+
+  font-weight:700;
+
+  transition:.3s;
+
+}
+
+.btn-nav:hover{
+
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+
+}
+
+/* HERO */
+
+.hero{
+
+  min-height:100vh;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  padding-top:90px;
+
+}
+
+.hero-left{
+
+  padding:7rem 7vw;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+}
+
+.hero-badge{
+
+  display:inline-flex;
+  align-items:center;
+  gap:.7rem;
+
+  width:max-content;
+
+  background:#ffe1c7;
+
+  color:var(--orange-dark);
+
+  padding:.8rem 1.2rem;
+
+  border-radius:999px;
+
+  font-size:.85rem;
+  font-weight:700;
+
+  margin-bottom:2rem;
+
+}
+
+.hero-badge::before{
+
+  content:'';
+  width:10px;
+  height:10px;
+
+  border-radius:50%;
+
+  background:var(--pink);
+
+}
+
+.hero h1{
+
+  font-family:'DM Serif Display',serif;
+
+  font-size:clamp(3.5rem,7vw,6.5rem);
+
+  line-height:.95;
+
+  margin-bottom:1.5rem;
+
+}
+
+.hero h1 span{
+  color:var(--pink);
+}
+
+.hero p{
+
+  font-size:1.1rem;
+  line-height:1.8;
+
+  max-width:620px;
+
+  color:var(--brown-soft);
+
+  margin-bottom:2.5rem;
+
+}
+
+.hero-buttons{
+
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+
+}
+
+.btn-primary{
+
+  text-decoration:none;
+
+  background:linear-gradient(135deg,var(--orange),var(--red));
+
+  color:white;
+
+  padding:1.1rem 2rem;
+
+  border-radius:20px;
+
+  font-weight:700;
+
+  transition:.3s;
+
+}
+
+.btn-primary:hover{
+
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(255,123,41,.25);
+
+}
+
+.btn-secondary{
+
+  text-decoration:none;
+
+  border:2px solid #ffc998;
+
+  color:var(--brown);
+
+  padding:1.1rem 2rem;
+
+  border-radius:20px;
+
+  transition:.3s;
+
+}
+
+.btn-secondary:hover{
+  background:#ffe8d2;
+}
+
+/* HERO GRID */
+
+.hero-right{
+
+  padding:2rem;
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+
+  gap:1rem;
+
+}
+
+.hero-card{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:32px;
+
+  box-shadow:var(--shadow);
+
+}
+
+.hero-card.large{
+  grid-column:1/3;
+}
+
+.hero-card img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:.5s;
+
+}
+
+.hero-card:hover img{
+  transform:scale(1.05);
+}
+
+.hero-overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(to top,rgba(0,0,0,.4),transparent 60%);
+
+}
+
+.hero-label{
+
+  position:absolute;
+  bottom:1.2rem;
+  left:1.2rem;
+
+  color:white;
+
+  font-size:1rem;
+  font-weight:700;
+
+}
+
+/* BENEFÍCIOS */
+
+.benefits{
+
+  padding:7rem 7vw;
+
+}
+
+.section-top{
+
+  text-align:center;
+
+  margin-bottom:4rem;
+
+}
+
+.section-tag{
+
+  color:var(--pink);
+
+  font-size:.9rem;
+  font-weight:700;
+
+  text-transform:uppercase;
+  letter-spacing:.14em;
+
+  margin-bottom:1rem;
+
+}
+
+.section-title{
+
+  font-family:'DM Serif Display',serif;
+
+  font-size:clamp(2.8rem,5vw,4.5rem);
+
+  margin-bottom:1rem;
+
+}
+
+.section-sub{
+
+  max-width:700px;
+  margin:auto;
+
+  line-height:1.8;
+
+  color:var(--brown-soft);
+
+}
+
+.benefits-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+  gap:1.5rem;
+
+}
+
+.benefit-card{
+
+  background:var(--card);
+
+  padding:1.5rem;
+
+  border-radius:30px;
+
+  transition:.35s;
+
+}
+
+.benefit-card:hover{
+
+  transform:translateY(-8px);
+  box-shadow:var(--shadow);
+
+}
+
+.benefit-card img{
+
+  width:100%;
+  height:220px;
+
+  object-fit:cover;
+
+  border-radius:22px;
+
+  margin-bottom:1.3rem;
+
+}
+
+.benefit-card h3{
+
+  font-size:1.4rem;
+
+  color:var(--orange-dark);
+
+  margin-bottom:.8rem;
+
+}
+
+.benefit-card p{
+
+  line-height:1.7;
+
+  color:var(--brown-soft);
+
+}
+
+/* PLANOS */
+
+.pricing{
+
+  padding:7rem 7vw;
+
+  background:linear-gradient(180deg,#ffe7d2,#fff5eb);
+
+}
+
+.pricing-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+  gap:1.5rem;
+
+  max-width:1100px;
+  margin:auto;
+
+}
+
+.price-card{
+
+  position:relative;
+
+  background:#fff2e5;
+
+  border-radius:32px;
+
+  padding:2.5rem;
+
+  transition:.35s;
+
+}
+
+.price-card:hover{
+
+  transform:translateY(-8px);
+  box-shadow:var(--shadow);
+
+}
+
+.price-card.popular{
+
+  background:linear-gradient(180deg,var(--orange),var(--pink));
+
+  color:white;
+
+}
+
+.popular-badge{
+
+  position:absolute;
+  top:18px;
+  right:18px;
+
+  background:white;
+  color:var(--pink);
+
+  padding:.5rem .9rem;
+
+  border-radius:999px;
+
+  font-size:.75rem;
+  font-weight:700;
+
+}
+
+.plan{
+
+  font-size:.95rem;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+
+  margin-bottom:1rem;
+
+}
+
+.price{
+
+  font-family:'DM Serif Display',serif;
+
+  font-size:4rem;
+
+  line-height:1;
+
+  margin-bottom:1rem;
+
+}
+
+.price-desc{
+
+  line-height:1.8;
+
+  margin-bottom:2rem;
+
+}
+
+.price-card ul{
+
+  list-style:none;
+
+  margin-bottom:2rem;
+
+}
+
+.price-card li{
+
+  padding:.7rem 0;
+
+  border-bottom:1px solid rgba(0,0,0,.08);
+
+}
+
+.price-card.popular li{
+  border-color:rgba(255,255,255,.18);
+}
+
+.btn-price{
+
+  display:block;
+
+  text-align:center;
+
+  text-decoration:none;
+
+  background:var(--orange);
+
+  color:white;
+
+  padding:1rem;
+
+  border-radius:18px;
+
+  font-weight:700;
+
+  transition:.3s;
+
+}
+
+.price-card.popular .btn-price{
+
+  background:white;
+  color:var(--pink);
+
+}
+
+.btn-price:hover{
+
+  transform:translateY(-3px);
+
+}
+
+/* TESTIMONIAL */
+
+.testimonial{
+
+  padding:7rem 7vw;
+
+}
+
+.testimonial-box{
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  gap:3rem;
+
+  background:#ffe4d3;
+
+  border-radius:38px;
+
+  overflow:hidden;
+
+}
+
+.testimonial-image img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+.testimonial-content{
+
+  padding:4rem;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+}
+
+.quote{
+
+  font-family:'DM Serif Display',serif;
+
+  font-size:6rem;
+
+  color:var(--pink);
+
+  line-height:1;
+
+  margin-bottom:1rem;
+
+}
+
+.testimonial-text{
+
+  font-size:1.25rem;
+
+  line-height:1.9;
+
+  color:#6f4b39;
+
+  margin-bottom:2rem;
+
+}
+
+.author{
+
+  font-weight:700;
+
+}
+
+.author span{
+
+  display:block;
+
+  margin-top:.4rem;
+
+  color:#8f6953;
+
+  font-weight:400;
+
+}
+
+/* FOOTER */
+
+footer{
+
+  background:#5d3423;
+
+  color:#ffe7d5;
+
+  padding:4rem 7vw 2rem;
+
+}
+
+.footer-grid{
+
+  display:grid;
+
+  grid-template-columns:2fr 1fr 1fr;
+
+  gap:2rem;
+
+  margin-bottom:3rem;
+
+}
+
+.footer-brand h3{
+
+  font-family:'DM Serif Display',serif;
+
+  font-size:2rem;
+
+  margin-bottom:1rem;
+
+}
+
+.footer-brand p{
+
+  max-width:420px;
+
+  line-height:1.8;
+
+  color:#f5d1b7;
+
+}
+
+.footer-column h4{
+
+  margin-bottom:1rem;
+
+}
+
+.footer-column ul{
+  list-style:none;
+}
+
+.footer-column li{
+  margin-bottom:.7rem;
+}
+
+.footer-column a{
+
+  text-decoration:none;
+
+  color:#f5d1b7;
+
+  transition:.3s;
+
+}
+
+.footer-column a:hover{
+  color:white;
+}
+
+.footer-bottom{
+
+  border-top:1px solid rgba(255,255,255,.12);
+
+  padding-top:2rem;
+
+  text-align:center;
+
+  color:#f2c7a7;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:980px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero-right{
+    padding:0 7vw 5rem;
+  }
+
+  .testimonial-box{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero-right{
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+  }
+
+  .hero-card.large{
+    grid-column:auto;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+  <a href="#" class="logo">Fio <span>Vivo</span></a>
+
+  <ul class="nav-links">
+    <li><a href="#beneficios">Benefícios</a></li>
+    <li><a href="#planos">Planos</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+  </ul>
+
+  <a href="#planos" class="btn-nav">Quero aprender</a>
+
+</nav>
+
+<section class="hero">
+
+  <div class="hero-left">
+
+    <div class="hero-badge">
+      Curso Online de Corte & Costura
+    </div>
+
+    <h1>
+      Crie roupas, bolsas e peças incríveis com as próprias <span>mãos</span>
+    </h1>
+
+    <p>
+      Aprenda corte, modelagem e costura do zero com aulas práticas, projetos criativos e acompanhamento completo. Um curso moderno para quem quer transformar criatividade em peças reais.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#planos" class="btn-primary">
+        Começar agora
+      </a>
+
+      <a href="#beneficios" class="btn-secondary">
+        Ver módulos
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="hero-right">
+
+    <div class="hero-card large">
+
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&q=80&auto=format&fit=crop" alt="Máquina de costura">
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-label">
+        Máquinas, tecidos e criatividade
+      </div>
+
+    </div>
+
+    <div class="hero-card">
+
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80&auto=format&fit=crop" alt="Lãs coloridas">
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-label">
+        Lãs & fios
+      </div>
+
+    </div>
+
+    <div class="hero-card">
+
+      <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&q=80&auto=format&fit=crop" alt="Tecidos">
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-label">
+        Tecidos modernos
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="benefits" id="beneficios">
+
+  <div class="section-top">
+
+    <div class="section-tag">
+      Como funciona
+    </div>
+
+    <h2 class="section-title">
+      Aprenda na prática
+    </h2>
+
+    <p class="section-sub">
+      Cada módulo foi pensado para ensinar de forma leve, criativa e visual. Você aprende enquanto cria peças reais.
+    </p>
+
+  </div>
+
+  <div class="benefits-grid">
+
+    <div class="benefit-card">
+
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&q=80&auto=format&fit=crop" alt="Linha e costura">
+
+      <h3>
+        Técnicas do zero
+      </h3>
+
+      <p>
+        Aprenda desde os primeiros pontos até acabamentos profissionais sem dificuldade.
+      </p>
+
+    </div>
+
+    <div class="benefit-card">
+
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&q=80&auto=format&fit=crop" alt="Tecidos coloridos">
+
+      <h3>
+        Projetos criativos
+      </h3>
+
+      <p>
+        Desenvolva bolsas, tops, vestidos e peças modernas enquanto pratica cada técnica.
+      </p>
+
+    </div>
+
+    <div class="benefit-card">
+
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=80&auto=format&fit=crop" alt="Fios">
+
+      <h3>
+        Aulas acessíveis
+      </h3>
+
+      <p>
+        Assista quando quiser e pratique no seu ritmo pelo celular, tablet ou computador.
+      </p>
+
+    </div>
+
+    <div class="benefit-card">
+
+      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&q=80&auto=format&fit=crop" alt="Kit de costura">
+
+      <h3>
+        Comunidade criativa
+      </h3>
+
+      <p>
+        Compartilhe projetos, troque ideias e evolua junto com outras alunas apaixonadas por costura.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="pricing" id="planos">
+
+  <div class="section-top">
+
+    <div class="section-tag">
+      Planos
+    </div>
+
+    <h2 class="section-title">
+      Escolha sua jornada
+    </h2>
+
+  </div>
+
+  <div class="pricing-grid">
+
+    <div class="price-card">
+
+      <div class="plan">
+        Iniciante
+      </div>
+
+      <div class="price">
+        R$49
+      </div>
+
+      <div class="price-desc">
+        Ideal para quem está começando e quer aprender os fundamentos da costura.
+      </div>
+
+      <ul>
+        <li>20 aulas práticas</li>
+        <li>Modelagem básica</li>
+        <li>Grupo de apoio</li>
+        <li>Certificado digital</li>
+      </ul>
+
+      <a href="#" class="btn-price">
+        Começar
+      </a>
+
+    </div>
+
+    <div class="price-card popular">
+
+      <div class="popular-badge">
+        Mais escolhido
+      </div>
+
+      <div class="plan">
+        Ateliê Completo
+      </div>
+
+      <div class="price">
+        R$89
+      </div>
+
+      <div class="price-desc">
+        Acesso total com projetos exclusivos, suporte e aulas avançadas.
+      </div>
+
+      <ul>
+        <li>80+ aulas</li>
+        <li>Peças modernas</li>
+        <li>Suporte semanal</li>
+        <li>Comunidade VIP</li>
+        <li>Atualizações gratuitas</li>
+      </ul>
+
+      <a href="#" class="btn-price">
+        Quero acesso
+      </a>
+
+    </div>
+
+    <div class="price-card">
+
+      <div class="plan">
+        Profissional
+      </div>
+
+      <div class="price">
+        R$129
+      </div>
+
+      <div class="price-desc">
+        Para quem quer transformar a costura em renda extra ou profissão.
+      </div>
+
+      <ul>
+        <li>Tudo do plano completo</li>
+        <li>Módulo de vendas</li>
+        <li>Marketing para ateliê</li>
+        <li>Mentoria em grupo</li>
+      </ul>
+
+      <a href="#" class="btn-price">
+        Entrar agora
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="testimonial" id="depoimentos">
+
+  <div class="testimonial-box">
+
+    <div class="testimonial-image">
+
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1200&q=80&auto=format&fit=crop" alt="Lãs coloridas">
+
+    </div>
+
+    <div class="testimonial-content">
+
+      <div class="quote">
+        “
+      </div>
+
+      <p class="testimonial-text">
+        Eu comecei sem experiência nenhuma e hoje consigo criar minhas próprias peças e vender encomendas. As aulas são bonitas, fáceis de acompanhar e muito divertidas.
+      </p>
+
+      <div class="author">
+        Camila Duarte
+        <span>Aluna há 7 meses</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+
+      <h3>
+        Ateliê Fio Vivo
+      </h3>
+
+      <p>
+        Cursos online de corte e costura para quem quer aprender, criar e transformar criatividade em peças únicas.
+      </p>
+
+    </div>
+
+    <div class="footer-column">
+
+      <h4>
+        Curso
+      </h4>
+
+      <ul>
+        <li><a href="#">Módulos</a></li>
+        <li><a href="#">Projetos</a></li>
+        <li><a href="#">Certificado</a></li>
+        <li><a href="#">Comunidade</a></li>
+      </ul>
+
+    </div>
+
+    <div class="footer-column">
+
+      <h4>
+        Suporte
+      </h4>
+
+      <ul>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Privacidade</a></li>
+        <li><a href="#">Termos</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Ateliê Fio Vivo — Todos os direitos reservados.
+  </div>
+
+</footer>
+
+</body>
+</html>
